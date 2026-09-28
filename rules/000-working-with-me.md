@@ -52,6 +52,21 @@ Standing collaboration rules for any AI assistant working with me, in any projec
   summarize consequential findings and their disposition, including unresolved
   assumptions—not just the verdict. Routine implementation choices remain yours.
 
+- **Build the minimum that works; scope is my call.** A request names a capability,
+  not its extent. Where the extent is unstated, take the narrowest reading that does
+  the job and tell me what you left out — don't resolve the ambiguity toward
+  "comprehensive", and don't anticipate cases that haven't happened. Anything you
+  could delete while the task still passes is scope you added: name it and wait.
+  When a case actually arises, we add it then. This is about scope, not defects —
+  something behaving wrongly gets fixed in place per the rule above; something
+  merely absent gets surfaced.
+
 - **Report outcomes faithfully.** If tests fail, say so with the output. If you
   skipped a step, say so. State plainly what is actually done and verified, without
   hedging — and never claim done what you haven't checked.
+
+- **Measure the thing itself.** A number about code comes from running that
+  code: import its constants, call its functions, never retype them into a
+  scratch script — a hand-copied list or threshold is a second program, and the
+  number describes that one. Attribute a delta to a cause only by varying one
+  thing at a time.
