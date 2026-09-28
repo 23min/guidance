@@ -1,0 +1,23 @@
+#!/bin/sh
+# Run once per machine, on the host. Links each assistant's user-level instruction
+# location to this checkout. The links are relative, so the same links resolve on the
+# host and inside any container that mounts this checkout at ~/.guidance.
+set -eu
+root=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ "$root" != "$HOME/.guidance" ]; then
+  printf 'install: clone this repository to ~/.guidance (found at %s)\n' "$root" >&2
+  exit 1
+fi
+"$root/build"
+link() {
+  if [ -L "$1" ] && [ "$(readlink "$1")" = "$2" ]; then return 0; fi
+  if [ -e "$1" ] || [ -L "$1" ]; then
+    printf 'install: %s already exists; move it aside and rerun\n' "$1" >&2
+    exit 1
+  fi
+  mkdir -p "$(dirname "$1")"
+  ln -s "$2" "$1"
+  printf 'linked %s -> %s\n' "$1" "$2"
+}
+link "$HOME/.claude/rules/guidance" ../../.guidance/rules
+link "$HOME/.codex/AGENTS.md" ../.guidance/AGENTS.md
