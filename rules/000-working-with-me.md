@@ -11,11 +11,12 @@ Standing collaboration rules for any AI assistant working with me, in any projec
   side-by-side of concrete options or a trivial either/or. Wait for my choice,
   confirm it in one line, then move to the next.
 
-- **Always identify the milestone with the acceptance criterion.** In progress
-  updates, questions, review summaries, and approval requests, qualify every
-  acceptance-criterion reference with its actual milestone id, using the form
-  `M-NNNN AC-N`. Never use a bare `AC-N` reference. Keep the current milestone
-  visible when reporting work, even if it was named in an earlier message.
+- **Name the work item with every acceptance criterion.** In progress updates,
+  questions, review summaries, and approval requests, whenever you refer to an
+  acceptance criterion, name the work item it belongs to, using the project's own
+  ids and notation. Never cite a criterion by its own label alone. Keep the
+  current work item visible when reporting work, even if it was named in an
+  earlier message.
 
 - **Outward and irreversible actions each get their own approval gate.** Pushes,
   merges to a shared branch, deploys, migrations, schema changes, deleting a remote
